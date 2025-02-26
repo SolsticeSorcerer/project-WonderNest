@@ -16,9 +16,9 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
 const expressError = require("./utils/expressError.js")
-// if(process.env.NODE_ENV != "production"){
+if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
-// }
+}
 
 app.use((req, res, next) => {
     res.locals.searchQuery = req.query.search || ""; // Ensures searchQuery is always defined
