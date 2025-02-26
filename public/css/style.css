@@ -1,0 +1,151 @@
+body{
+    font-family: sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+/* nav */
+.fa-feather{
+    color: #00FA9A;
+    font-size: 2.3rem;
+}
+
+.navbar{
+    height :5rem;
+    background-color: white !important;
+}
+@media (max-width: 768px) {
+    .navbar-collapse {
+      background-color: white !important; /* Set white background */
+      padding: 1rem; /* Add padding for better spacing */
+      border-radius: 10px; /* Optional: Add rounded corners */
+    }
+  }
+  
+.nav-link{
+    color : #222222 !important;
+}
+
+/* footer */
+.f-info-links a{
+    color : #222222;
+    text-decoration: none;
+    margin :0.2rem;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-social i{
+    font-size: 1.3rem;
+    margin:0.2rem;
+}
+
+.f-info{
+    height : 7rem;
+    background-color: #ebebeb;
+    display :flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: space-evenly;
+}
+
+/* cards */
+.listing-card{
+    border : none !important;
+    margin-bottom : 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    color:aliceblue !important;
+    opacity: 0.3;
+    background-color: black;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* new page */
+.add-btn{
+    background-color : #00FA9A !important;
+    border: none !important;
+}
+
+/* edit page */
+.edit-btn{
+    background-color : #00FA9A !important;
+    border: none !important;
+}
+
+/* show page */
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.show-btn{
+    background-color : #00FA9A !important;
+    border: none !important;
+}
+
+.show-card{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+/* review */
+.revsub-btn{
+    border-color:#00FA9A !important;
+    color:#00FA9A !important;
+}
+.revsub-btn:hover{
+    background-color : #00FA9A !important;
+    color:#ffffff !important;
+    border-color: #00FA9A !important;
+}
+
+/* check box */
+
+.category-checkbox:checked {
+    background-color: #00FA9A !important;
+    border-color: #00FA9A !important;
+}

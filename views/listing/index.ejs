@@ -1,0 +1,144 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<body>
+
+    <style>
+        #filter{
+            display : flex;
+            flex-wrap: nowrap; 
+            overflow-x: auto;
+            align-items: center;
+        }
+    
+        .filter {
+            text-align: center;
+            margin-top: 2rem;
+            margin-right: 2rem;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter p{
+            font-size: 0.8rem;
+        }
+
+        .form-check-input:checked {
+        background-color: #00FA9A !important;
+        border-color: #00FA9A !important;
+        }
+
+        .tax-info{
+            display: none;
+            opacity: 0.8;
+            color: #00FA9A;
+        }
+
+        .tax-toggle{
+            border: 1px solid #00FA9A;
+            border-radius: 1rem ;
+            height : 2.8rem;
+            padding: 0.6rem;
+            margin-left: 3rem;
+        }
+        #filter::-webkit-scrollbar {
+        display: none;
+        }
+
+    </style>
+
+
+    <div id="filter">
+        <div class="filter" data-value="trending">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter" data-value="rooms">
+            <i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+        </div>
+        <div class="filter" data-value="beach">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beach</p>
+        </div>
+        <div class="filter" data-value="nature">
+            <i class="fa-solid fa-tree"></i>
+            <p>Nature</p>
+        </div>
+        <div class="filter" data-value="snow">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Snow</p>
+        </div>
+        <div class="filter" data-value="iconic_cities">
+            <i class="fa-solid fa-city"></i>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter" data-value="mountain">
+            <i class="fa-solid fa-mountain"></i>
+            <p>Mountain</p>
+        </div>
+        <div class="filter" data-value="boat">
+            <i class="fa-solid fa-ship"></i>
+            <p>Boat</p>
+        </div>
+        <div class="filter" data-value="lake_front">
+            <i class="fa-solid fa-water"></i>
+            <p>Lake Front</p>
+        </div>
+        <div class="filter" data-value="ski_in">
+            <i class="fa-solid fa-person-skiing"></i>
+            <p>Ski-In</p>
+        </div>
+        <div class="filter" data-value="castles">
+            <i class="fa-solid fa-chess-rook"></i>
+            <p>Castles</p>
+        </div>
+
+
+        <div class="tax-toggle d-none d-xl-block">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row row-cols-md-2 row-cols-lg-3 row-cols-sm-1">
+    <% for (list of allList) { %>
+    <a class="listing-link" href="/listings/<%= list._id %>">
+    <div class="card col listing-card">
+        <img src="<%= list.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+        <div class="card-img-overlay">Country : <%= list.country %></div>
+        <div class="card-body">
+          <p class="card-text list-title">
+            <b><%= list.title %></b><br />
+            &#8377; <%= list.price.toLocaleString("en-IN") %> / night
+            <i class="tax-info">&nbsp; &nbsp; +15 GST</i>
+        </p>
+        </div>
+    </div>
+    </a>
+    <% } %>
+    </div>
+</body>
+
+
+<script>
+    let taxSwitch =  document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click",()=>{
+        let taxs =  document.getElementsByClassName("tax-info");
+        for(tax of taxs){
+            if(tax.style.display != "inline"){
+                tax.style.display = "inline";
+            }else{
+                tax.style.display = "none";
+            }
+        }
+    });
+</script>
